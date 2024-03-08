@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    stages {
+        stage('Etapa 1') {
+            steps {
+                sh 'echo "Hola desde la Etapa 1"'
+            }
+        }
+        stage('Etapa 2') {
+            steps {
+                sh 'echo "Hola desde la Etapa 2"'
+            }
+        }
+        stage('Etapa 3') {
+            steps {
+                sh 'echo "Hola desde la Etapa 3"'
+            }
+        }
+        stage('Etapa 4') {
+            steps {
+                sh 'echo "Hola desde la Etapa 4"'
+            }
+        }
+        stage('Etapa 5') {
+            steps {
+                sh 'echo "Hola desde la Etapa 5"'
+            }
+        }
+    }
+}
