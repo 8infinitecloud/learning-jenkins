@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen de Apache con Dockerfile
-                    tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+                    tool name: 'Docker'
                     docker.build(env.DOCKER_IMAGE, '-f lab06-application/Dockerfile .')
                 }
             }
