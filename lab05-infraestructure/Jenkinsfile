@@ -7,6 +7,14 @@ pipeline {
     }
     
     stages {
+        stage('Validar conexión AWS') {
+            steps {
+                script {
+                    sh 'aws s3 ls'
+                }
+            }
+        }
+        
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/munozhassel/jenkins-learning.git'
