@@ -9,7 +9,7 @@ resource "aws_elastic_beanstalk_application" "example" {
 resource "aws_elastic_beanstalk_environment" "example" {
   name                = "my-nodejs-env"
   application         = aws_elastic_beanstalk_application.example.name
-  solution_stack_name = "64bit Amazon Linux 2 v5.2.3 running Node.js 14"
+  solution_stack_name = "64bit Amazon Linux 2 v5.0.2 running Node.js 12"
 
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
