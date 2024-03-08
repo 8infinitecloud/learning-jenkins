@@ -2,10 +2,8 @@ pipeline {
     agent any
     
     parameters {
-        string(name: 'AWS_ACCESS_KEY_ID', defaultValue: 'default_value', description: 'Description of string parameter')
+        string(name: 'AWS_ACCESS_KEY_ID', defaultValue: '', description: 'Description of string parameter')
         string(name: 'AWS_SECRET_ACCESS_KEY', defaultValue: '', description: 'Another string parameter')
-        // Para secret parameters, utiliza la directiva credentials
-        credentials(name: 'SECRET_PARAMETER', defaultValue: 'secret_id', description: 'Description of secret parameter')
     }
 
     environment {
