@@ -9,14 +9,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/munozhassel/jenkins-learning.git'
+                git branch: 'main', url: 'https://github.com/munozhassel/jenkins-learning.git'
             }
         }
         
         stage('Deploy Infrastructure') {
             steps {
                 script {
-                    dir('lab05-infraestructure') { // ruta correcta de archivos Terraform
+                    dir('lab05-infraestructure') {
                         sh 'terraform init'
                         sh 'terraform plan -out=tfplan'
                         sh 'terraform apply tfplan'
