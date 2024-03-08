@@ -6,32 +6,33 @@ pipeline {
         AWS_ACCESS_KEY_ID = "AKIARI2GL65TDTCL6YO5"
         AWS_SECRET_ACCESS_KEY = "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"
         AWS_DEFAULT_REGION = "us-east-1"
-        AWS_ECR_URL = 'tu-repositorio-aws.amazonaws.com' // URL de tu repositorio de ECR
-        DOCKER_IMAGE_NAME = 'ecr-image-apache' // Nombre de la imagen Docker
+        DOCKER_IMAGE_NAME = 'ecr-image-apache:latest' // Nombre de la imagen Docker
+        ECR_REPO = 'my-container-repo'
     }
     
     stages {
-        stage('Validar conexión AWS') {
+        stage('Build') {
             steps {
                 script {
-                    sh 'aws s3 ls'
+                    // Construir la imagen de Apache con Dockerfile
+                    docker.build(env.DOCKER_IMAGE, '-f lab06-application/Dockerfile .')
                 }
             }
         }
-
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/munozhassel/jenkins-learning.git'
-            }
-        }
         
-        stage('Deploy Infrastructure') {
+        stage('Push to ECR') {
             steps {
                 script {
-                    dir('lab05-infraestructure') {
-                        sh 'terraform init'
-                        sh 'terraform plan -out=tfplan'
-                        sh 'terraform apply tfplan'
+                    // Autenticarse con ECR usando credenciales previamente configuradas en Jenkins
+                    withCredentials([usernamePassword(credentialsId: 'aws-ecr-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                        // Configurar el comando de login de AWS ECR
+                        def dockerLogin = sh(script: "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com", returnStdout: true).trim()
+                        // Ejecutar el comando de login
+                        sh "${dockerLogin}"
+                        // Tag de la imagen con el repositorio de ECR
+                        docker.image(env.DOCKER_IMAGE).tag("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest")
+                        // Hacer push de la imagen a ECR
+                        docker.image("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest").push()
                     }
                 }
             }
