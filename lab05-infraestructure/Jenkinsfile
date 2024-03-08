@@ -18,6 +18,7 @@ pipeline {
         stage('Validar conexión AWS') {
             steps {
                 script {
+                    sh 'env'
                     sh 'aws s3 ls'
                 }
             }
