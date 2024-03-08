@@ -92,11 +92,11 @@ En esta parte te encontraras en la configuracion del pipeline, seleciona en el m
 
 - SCM: Git
   - Repositories:
-    - Repositories URL: 
-    - Credentials:
+    - Repositories URL: https://github.com/munozhassel/jenkins-learning.git (URL HTTPS DEL REPOSITORIO)
+    - Credentials: none
   - Branches to build:
-    - */prod
-  - Scrip Path: /lab04-pipeline/Jenkinsfile
+    - */main
+  - Scrip Path: lab04-pipeline/Jenkinsfile
 
 Finalmente, procede a guardar la configuracion.
 
