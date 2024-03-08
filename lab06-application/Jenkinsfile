@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKERFILE_PATH = 'Dockerfile' // Ruta al Dockerfile en tu repositorio
+        AWS_ACCESS_KEY_ID = "AKIARI2GL65TDTCL6YO5"
+        AWS_SECRET_ACCESS_KEY = "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"
+        AWS_DEFAULT_REGION = "us-east-1"
+        AWS_ECR_URL = 'tu-repositorio-aws.amazonaws.com' // URL de tu repositorio de ECR
+        DOCKER_IMAGE_NAME = 'ecr-image-apache' // Nombre de la imagen Docker
+    }
+    
+    stages {
+        stage('Validar conexión AWS') {
+            steps {
+                script {
+                    sh 'aws s3 ls'
+                }
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/munozhassel/jenkins-learning.git'
+            }
+        }
+        
+        stage('Deploy Infrastructure') {
+            steps {
+                script {
+                    dir('lab05-infraestructure') {
+                        sh 'terraform init'
+                        sh 'terraform plan -out=tfplan'
+                        sh 'terraform apply tfplan'
+                    }
+                }
+            }
+        }
+    }
+}
