@@ -13,8 +13,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Construir la imagen de Apache con Dockerfile
-                    tool name: 'Docker'
                     docker.build(env.DOCKER_IMAGE, '-f lab06-application/Dockerfile .')
                 }
             }
