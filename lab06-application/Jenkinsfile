@@ -2,7 +2,6 @@ pipeline {
     agent any
     
     environment {
-        DOCKERFILE_PATH = 'Dockerfile' // Ruta al Dockerfile en tu repositorio
         AWS_ACCESS_KEY_ID = "AKIARI2GL65TDTCL6YO5"
         AWS_SECRET_ACCESS_KEY = "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"
         AWS_DEFAULT_REGION = "us-east-1"
@@ -23,17 +22,12 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 script {
-                    // Autenticarse con ECR usando credenciales previamente configuradas en Jenkins
-                    withCredentials([usernamePassword(credentialsId: 'aws-ecr-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                        // Configurar el comando de login de AWS ECR
-                        def dockerLogin = sh(script: "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com", returnStdout: true).trim()
-                        // Ejecutar el comando de login
-                        sh "${dockerLogin}"
-                        // Tag de la imagen con el repositorio de ECR
-                        docker.image(env.DOCKER_IMAGE).tag("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest")
-                        // Hacer push de la imagen a ECR
-                        docker.image("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest").push()
-                    }
+                    // Login en ECR
+                    sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+                    // Tag de la imagen con el repositorio de ECR
+                    docker.image(env.DOCKER_IMAGE).tag("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest")
+                    // Hacer push de la imagen a ECR
+                    docker.image("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest").push()
                 }
             }
         }
