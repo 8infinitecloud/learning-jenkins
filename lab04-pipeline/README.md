@@ -1,4 +1,4 @@
-# Laboratorio de Jenkins 04.01
+ # Laboratorio de Jenkins 04.01
 ### Duración: 10 minutos.
 <img src="https://www.jenkins.io/images/logos/plumber/plumber.png" alt="Texto alternativo" width="200"/>
 
@@ -93,7 +93,7 @@ En esta parte te encontraras en la configuracion del pipeline, seleciona en el m
 - SCM: Git
   - Repositories:
     - Repositories URL: https://github.com/munozhassel/jenkins-learning.git (URL HTTPS DEL REPOSITORIO)
-    - Credentials: none
+    - Credentials: none (EL REPOSITORIO EL PUBLICO, POR LO QUE NO SE NECESITA CREDENCIALES)
   - Branches to build:
     - */main
   - Scrip Path: lab04-pipeline/Jenkinsfile
