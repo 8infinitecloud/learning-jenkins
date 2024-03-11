@@ -1,4 +1,4 @@
-# Laboratorio de Jenkins 03
+# Laboratorio de Jenkins 03 - Organización
 ### Duración: 5 minutos.
 <img src="https://www.jenkins.io/images/logos/parasite/256.png" alt="Texto alternativo" width="200"/>
 
