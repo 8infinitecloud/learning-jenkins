@@ -7,10 +7,15 @@ pipeline {
                 git 'https://github.com/munozhassel/juice-shop.git'
             }
         }
-        stage('Instalar dependencias') {
+        stage('Validaciones previas') {
             steps {
                 sh 'ls -la'
                 sh 'pwd'
+                sh 'npm --version'
+            }
+        }
+        stage('Instalar dependencias') {
+            steps {
                 sh 'npm install'
             }
         }
