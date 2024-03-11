@@ -10,7 +10,7 @@ pipeline {
         stage('Instalar dependencias') {
             steps {
                 sh 'ls -la'
-                sh 'npm --version'
+                sh 'pwd'
                 sh 'cd juice-shop && npm install'
             }
         }
