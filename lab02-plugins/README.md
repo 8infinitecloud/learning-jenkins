@@ -1,4 +1,4 @@
-# Laboratorio de Jenkins 02
+# Laboratorio de Jenkins 02 - Plugins
 ### Duración: 10 minutos.
 <img src="https://www.jenkins.io/images/logos/cosmonaut/cosmonaut.png" alt="Texto alternativo" width="200"/>
 
