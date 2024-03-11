@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'ls -la'
                 sh 'pwd'
-                sh 'cd juice-shop && npm install'
+                sh 'npm install'
             }
         }
         stage('Empaquetar aplicación') {
