@@ -16,11 +16,11 @@ pipeline {
         }
         stage('Empaquetar aplicación') {
             steps {
-                sh 'cd juice-shop && zip -r juice-shop.zip .'
+                sh 'zip -r juice-shop.zip .'
             }
             post {
                 always {
-                    archiveArtifacts 'juice-shop/juice-shop.zip'
+                    archiveArtifacts 'juice-shop.zip'
                 }
             }
         }
