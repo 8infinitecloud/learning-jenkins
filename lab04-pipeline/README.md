@@ -6,9 +6,12 @@
 
 En este laboratorio, aprenderás a crear un pipeline en Jenkins que realice acciones básicas de Bash en cinco etapas.
 
+## Paso 1: Iniciar Jenkins
+
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+
 ```bash
-docker run -d --name jenkinstest1 -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
+docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
 ```
 
 Un requisito importante es tener instalado el plugin: Pipeline y Pipeline Stage View.
@@ -73,9 +76,12 @@ Luego de guardar la configuracion, te encontraras en el menu del Pipeline, aqui 
 
 En este laboratorio, aprenderás a crear un pipeline en Jenkins que realice acciones básicas de Bash en cinco etapas.
 
+## Paso 1: Iniciar Jenkins
+
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+
 ```bash
-docker run -d --name jenkinstest1 -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
+docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
 ```
 
 Un requisito importante es tener instalado el plugin: Pipeline y Pipeline Stage View.

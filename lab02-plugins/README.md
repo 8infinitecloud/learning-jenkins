@@ -1,4 +1,4 @@
-# Laboratorio de Jenkins 02
+# Laboratorio de Jenkins 02 - Plugins
 ### Duración: 10 minutos.
 <img src="https://www.jenkins.io/images/logos/cosmonaut/cosmonaut.png" alt="Texto alternativo" width="200"/>
 
@@ -9,8 +9,9 @@ Este laboratorio te guiará a través de los pasos para instalar el plugin de Ch
 ## Paso 1: Iniciar Jenkins
 
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+
 ```bash
-docker run -d --name jenkinstest1 -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
+docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
 ```
 
 ## Paso 2: Acceder al panel de administración de Jenkins
@@ -21,10 +22,8 @@ docker run -d --name jenkinstest1 -p 8080:8080 -p 50000:50000 --mount type=volum
 ## Paso 3: Instalar el plugin de Chuck Norris
 
 - En el panel de administración, ve a "Manage Jenkins" (Administrar Jenkins) y selecciona "Manage Plugins" (Administrar Plugins).
-<img src="https://courselabgithub.blob.core.windows.net/jenkins-lab-gh/jenkins-adminstra-plugins.png" alt="Texto alternativo" width="200"/>
 - Ve a la pestaña "Available" (Disponibles) y busca "Chuck Norris".
 - Selecciona el plugin de Chuck Norris y haz clic en "Install" (Instalar).
-<img src="https://courselabgithub.blob.core.windows.net/jenkins-lab-gh/jenkins-install-plugins.png" alt="Texto alternativo" width="200"/>
 
 ## Paso 4: Configurar y ejecutar el job
 

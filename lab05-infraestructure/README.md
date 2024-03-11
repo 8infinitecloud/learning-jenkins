@@ -3,6 +3,15 @@
 <img src="https://www.jenkins.io/images/logos/superhero/256.png" alt="Texto alternativo" width="200"/>
 
 # Ejecución de pipeline en jenkins para despliegue de infraestructura
+
+## Paso 1: Iniciar Jenkins
+
+Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+
+```bash
+docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
+```
+
 ### Requisitos Previos:
 
 1. **AWS SDK Plugin**: Este plugin proporciona la capacidad de interactuar con AWS a través de Jenkins.

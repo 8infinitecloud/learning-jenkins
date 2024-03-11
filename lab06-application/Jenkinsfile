@@ -1,46 +1,33 @@
 pipeline {
     agent any
-    
-    parameters {
-        string(name: 'AWS_ACCESS_KEY_ID', defaultValue: '', description: 'Description of string parameter')
-        string(name: 'AWS_SECRET_ACCESS_KEY', defaultValue: '', description: 'Another string parameter')
+
+    stages {
+        stage('Clonar repositorio') {
+            steps {
+                git 'https://github.com/munozhassel/juice-shop.git'
+            }
+        }
+        stage('Instalar dependencias') {
+            steps {
+                sh 'cd juice-shop && npm install'
+            }
+        }
+        stage('Empaquetar aplicación') {
+            steps {
+                sh 'cd juice-shop && zip -r juice-shop.zip .'
+            }
+            post {
+                always {
+                    archiveArtifacts 'juice-shop/juice-shop.zip'
+                }
+            }
+        }
     }
 
-    environment {
-        AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
-        AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
-        AWS_DEFAULT_REGION = "us-east-1"
-        DOCKERFILE_PATH = 'lab06-application/Dockerfile' // Ruta al Dockerfile en tu repositorio
-        AWS_ECR_URL = '087657543526.dkr.ecr.us-east-1.amazonaws.com/my-container-repo' // URL de tu repositorio de ECR
-        DOCKER_IMAGE_NAME = 'image-apache' // Nombre de la imagen Docker
-    }
-    
-    stages {
-        stage('Checkout') {
-            steps {
-                // Clonar el repositorio
-                git 'https://github.com/munozhassel/jenkins-learning.git'
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Construir la imagen Docker
-                    docker.build(DOCKER_IMAGE_NAME, '-f ${DOCKERFILE_PATH} .')
-                }
-            }
-        }
-        stage('Push Image to AWS ECR') {
-            steps {
-                script {
-                    // Autenticarse con AWS ECR
-                    withAWS(region: AWS_REGION, credentials: AWS_ECR_CREDENTIALS) {
-                        // Empujar la imagen Docker a AWS ECR
-                        docker.withRegistry(AWS_ECR_URL, 'ecr:latest') {
-                            docker.image(DOCKER_IMAGE_NAME).push('latest')
-                        }
-                    }
-                }
+    post {
+        always {
+            script {
+                echo 'La aplicación se ha empaquetado correctamente.'
             }
         }
     }
