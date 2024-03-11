@@ -11,7 +11,7 @@ Este laboratorio te guiará a través de los pasos para instalar el plugin de Ch
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
 
 ```bash
-docker run -d --name jenkinstest1 -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
+docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
 ```
 
 ## Paso 2: Acceder al panel de administración de Jenkins
