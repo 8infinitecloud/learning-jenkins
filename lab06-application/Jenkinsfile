@@ -1,33 +1,33 @@
 pipeline {
     agent any
-    
-    environment {
-        AWS_ACCESS_KEY_ID = "AKIARI2GL65TDTCL6YO5"
-        AWS_SECRET_ACCESS_KEY = "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"
-        AWS_DEFAULT_REGION = "us-east-1"
-        DOCKER_IMAGE = 'ecr-image-apache' // Nombre de la imagen Docker
-        ECR_REPO = 'my-container-repo'
-    }
-    
+
     stages {
-        stage('Build') {
+        stage('Clonar repositorio') {
             steps {
-                script {
-                    docker.build(env.DOCKER_IMAGE, '-f lab06-application/Dockerfile .')
+                git 'https://github.com/munozhassel/juice-shop.git'
+            }
+        }
+        stage('Instalar dependencias') {
+            steps {
+                sh 'cd juice-shop && npm install'
+            }
+        }
+        stage('Empaquetar aplicación') {
+            steps {
+                sh 'cd juice-shop && zip -r juice-shop.zip .'
+            }
+            post {
+                always {
+                    archiveArtifacts 'juice-shop/juice-shop.zip'
                 }
             }
         }
-        
-        stage('Push to ECR') {
-            steps {
-                script {
-                    // Login en ECR
-                    sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
-                    // Tag de la imagen con el repositorio de ECR
-                    docker.image(env.DOCKER_IMAGE).tag("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest")
-                    // Hacer push de la imagen a ECR
-                    docker.image("${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:latest").push()
-                }
+    }
+
+    post {
+        always {
+            script {
+                echo 'La aplicación se ha empaquetado correctamente.'
             }
         }
     }
