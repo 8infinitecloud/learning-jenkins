@@ -4,6 +4,10 @@
 
 # Ejecución de pipeline en jenkins para despliegue de infraestructura
 
+En este laboratorio, explorarás cómo ejecutar un pipeline en Jenkins para el despliegue automatizado de infraestructura. Utilizando herramientas como Terraform, definirás la infraestructura como código y configurarás un pipeline que gestionará la implementación y actualización de tu infraestructura de manera eficiente.
+
+¡Prepárate para automatizar el despliegue de tu infraestructura con Jenkins y llevar tu proceso de desarrollo a un nuevo nivel de eficiencia!
+
 ## Paso 1: Iniciar Jenkins
 
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
