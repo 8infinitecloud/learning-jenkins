@@ -70,6 +70,8 @@ El script describe el flujo de un pipeline en 5 etapas, en los cuales realiza la
 
 Luego de guardar la configuracion, te encontraras en el menu del Pipeline, aqui puedes ejecutarlo con un click en "Build" (Construir ahora). Podemos visualizar cada etapa en status y validar los resultados de cada etapa selecionado el numero de ejecución en historial de tareas.
 
+<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-lab04.1-SCRIPT.png" alt="Texto alternativo">
+
 # Laboratorio de Jenkins 04.02
 ### Duración: 10 minutos.
 <img src="https://www.jenkins.io/images/logos/nerd/256.png" alt="Texto alternativo" width="200"/>
@@ -114,3 +116,4 @@ El script describe el flujo de un pipeline en 5 etapas, en los cuales realiza la
 
 Luego de guardar la configuracion, te encontraras en el menu del Pipeline, aqui puedes ejecutarlo con un click en "Build" (Construir ahora). Podemos visualizar cada etapa en status y validar los resultados de cada etapa selecionado el numero de ejecución en historial de tareas.
 
+<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-lab04.2-SCM.png" alt="Texto alternativo">
