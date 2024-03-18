@@ -4,7 +4,10 @@
 
 # Instalacion y ejecucion de job con plugins
 
-Este laboratorio te guiará a través de los pasos para instalar el plugin de Chuck Norris en Jenkins y ejecutarlo.
+
+Un plugin en Jenkins es una extensión que agrega funcionalidad adicional al servidor de automatización Jenkins. Estas pequeñas aplicaciones pueden ser instaladas en Jenkins para agregar características como integraciones con herramientas externas, nuevos tipos de proyectos, notificaciones, y más.
+
+Este laboratorio te guiará a través de los pasos para instalar el plugin de Chuck Norris en Jenkins y ejecutarlo para darle un paso final divertido a nuestros Jobs.
 
 ## Paso 1: Iniciar Jenkins
 
@@ -40,3 +43,5 @@ docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volum
 ## Paso 6: Disfruta del resultado
 
 ¡Felicidades! Has instalado el plugin de Chuck Norris en Jenkins y ejecutado con éxito el job. Ahora puedes disfrutar de los mensajes inspiradores de Chuck Norris en tus construcciones de Jenkins.
+
+De acuerdo a las necesidades de las automatizaciones o flujos de trabajos que estamos por construir sueles crearse plugins oficiales o por colaboradores que aportan a la comunidad para agilizar procesos. Aqui tienes un lista para DevOps: https://www.opsera.io/blog/ace-your-devops-game-with-this-ultimate-list-of-plugins-in-jenkins en la cual puedes ver su finalidad.
