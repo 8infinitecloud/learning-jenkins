@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    environment {
+        EB_APP_NAME = "NombreDeTuAplicacionEB"
+        EB_ENV_NAME = "NombreDeTuEntornoEB"
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Copiar el artefacto del proyecto anterior
+                script {
+                    copyArtifacts(projectName: 'NombreDelProyectoAnterior', filter: 'artifact.zip')
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                script {
+                    // Despliegue en Elastic Beanstalk
+                    sh "aws elasticbeanstalk create-application-version --application-name ${EB_APP_NAME} --version-label ${BUILD_NUMBER} --source-bundle S3Bucket=${BUCKET_NAME},S3Key=${ARTIFACT_PATH}"
+                    sh "aws elasticbeanstalk update-environment --application-name ${EB_APP_NAME} --environment-name ${EB_ENV_NAME} --version-label ${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+}
