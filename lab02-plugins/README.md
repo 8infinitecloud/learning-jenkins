@@ -9,6 +9,8 @@ Un plugin en Jenkins es una extensión que agrega funcionalidad adicional al ser
 
 Este laboratorio te guiará a través de los pasos para instalar el plugin de Chuck Norris en Jenkins y ejecutarlo para darle un paso final divertido a nuestros Jobs.
 
+<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-labs-lab-02.1.chucknorris_alert.jpg" alt="Texto alternativo">
+
 ## Paso 1: Iniciar Jenkins
 
 Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
