@@ -1,3 +1,7 @@
+# Jenkins
+
+Jenkins es una herramienta de automatización de código abierto ampliamente utilizada para facilitar la integración continua (CI) y la entrega continua (CD) en el desarrollo de software. Permite a los equipos de desarrollo automatizar tareas repetitivas, como la compilación, prueba y despliegue de aplicaciones, lo que ayuda a detectar errores más rápidamente y a entregar software de alta calidad de manera más eficiente. Jenkins es esencialmente un servidor que ejecuta "trabajos" basados en eventos, como cambios en el repositorio de código, programados o desencadenados manualmente por los desarrolladores. Con su amplia gama de plugins y su capacidad para integrarse con otras herramientas de desarrollo, Jenkins se ha convertido en una piedra angular en los procesos de desarrollo de software modernos, ayudando a los equipos a mantenerse ágiles y a mejorar la colaboración dentro del ciclo de vida del desarrollo de software.
+
 # Laboratorios de Jenkins
 
 Este repositorio contiene una serie de laboratorios para configurar y utilizar Jenkins en diferentes escenarios.

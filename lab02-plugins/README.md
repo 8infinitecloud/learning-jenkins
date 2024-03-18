@@ -13,7 +13,7 @@ Este laboratorio te guiará a través de los pasos para instalar el plugin de Ch
 
 ## Paso 1: Iniciar Jenkins
 
-Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si eliminaste el contenedor deberas volver a ejecutar el comando:
 
 ```bash
 docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
@@ -29,6 +29,7 @@ docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volum
 - En el panel de administración, ve a "Manage Jenkins" (Administrar Jenkins) y selecciona "Manage Plugins" (Administrar Plugins).
 - Ve a la pestaña "Available" (Disponibles) y busca "Chuck Norris".
 - Selecciona el plugin de Chuck Norris y haz clic en "Install" (Instalar).
+- Ve a la pestaña "Installed" (Instalados) para ver una lista de todos los plugins instalados en Jenkins. Busca el plugin de Chuck Norris en la lista. Si aparece en la lista, significa que se instaló correctamente.
 
 ## Paso 4: Configurar y ejecutar el job
 
@@ -46,4 +47,4 @@ docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volum
 
 ¡Felicidades! Has instalado el plugin de Chuck Norris en Jenkins y ejecutado con éxito el job. Ahora puedes disfrutar de los mensajes inspiradores de Chuck Norris en tus construcciones de Jenkins.
 
-De acuerdo a las necesidades de las automatizaciones o flujos de trabajos que estamos por construir sueles crearse plugins oficiales o por colaboradores que aportan a la comunidad para agilizar procesos. Aqui tienes un lista para DevOps: https://www.opsera.io/blog/ace-your-devops-game-with-this-ultimate-list-of-plugins-in-jenkins en la cual puedes ver su finalidad.
+De acuerdo a las necesidades de las automatizaciones o flujos de trabajos que estemos por construir suele crearse plugins oficiales de diferentes soluciones o por colaboradores que aportan a la comunidad de Jenkins para agilizar procesos. Aqui tienes una lista de plugins para DevOps: https://www.opsera.io/blog/ace-your-devops-game-with-this-ultimate-list-of-plugins-in-jenkins en la cual puedes ver su finalidad y uso.

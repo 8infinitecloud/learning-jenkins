@@ -4,17 +4,19 @@
 
 # Ejecución de pipeline en jenkins
 
+Un pipeline en Jenkins es como seguir una receta de cocina completa para preparar tu software y configurar la infraestructura necesaria: desde la selección de los ingredientes (escribir código y definir la infraestructura) hasta servir el plato final (desplegar la aplicación en la infraestructura adecuada). Ayuda a organizar y automatizar todo el proceso para que sea rápido y sin errores, desde el desarrollo hasta el despliegue completo de la aplicación y la infraestructura asociada.
+
 En este laboratorio, aprenderás a crear un pipeline en Jenkins que realice acciones básicas de Bash en cinco etapas.
 
 ## Paso 1: Iniciar Jenkins
 
-Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si realizaste algun reinicio deberas volver a ejecutar el comando:
+Si aún no has iniciado Jenkins, asegúrate de ejecutar el contenedor de Docker para Jenkins, si eliminaste el contenedor deberas volver a ejecutar el comando:
 
 ```bash
 docker run -d --name jenkinslocal -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkinsvl,dst=/var/jenkins_home jenkins/jenkins
 ```
 
-Un requisito importante es tener instalado el plugin: Pipeline y Pipeline Stage View.
+Un requisito importante es tener instalado el plugin: Pipeline y Pipeline Stage View. Sigue los pasos realizados en el lab02 para la instalación y valida si se encuentra instalados!
 
 ## Paso 2: Crear un nuevo Pipeline Job
 
