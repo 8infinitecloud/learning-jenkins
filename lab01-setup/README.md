@@ -11,6 +11,10 @@ Este laboratorio te guiará a través de los pasos para configurar y ejecutar Je
 1. **Docker**: Tener instalado Docker Desktop.
 2. **Docker Hub**: Tener una cuenta de Docker Hub.
 
+## Diagrama de funcionamiento de jenkins localment:
+
+<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-labs-lab-01.1.drawio.svg" alt="Texto alternativo">
+
 ## Paso 1: Descargar imagen de Jenkins del repositorio de Docker Hub
 
 Ejecuta en la terminal de tu host el siguiente comando:
