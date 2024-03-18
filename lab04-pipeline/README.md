@@ -78,7 +78,7 @@ Luego de guardar la configuracion, te encontraras en el menu del Pipeline, aqui 
 
 # Ejecución de pipeline en jenkins desde SCM
 
-En este laboratorio, aprenderás a crear un pipeline en Jenkins que realice acciones básicas de Bash en cinco etapas.
+En este laboratorio, aprenderás a ejecutar un pipeline en Jenkins directamente desde SCM (Source Code Management). Este pipeline realizará acciones básicas de Bash en cinco etapas, lo que te permitirá automatizar tareas esenciales en tu flujo de trabajo
 
 ## Paso 1: Iniciar Jenkins
 
