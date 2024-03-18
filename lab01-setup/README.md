@@ -13,7 +13,8 @@ Este laboratorio te guiará a través de los pasos para configurar y ejecutar Je
 
 ## Diagrama de funcionamiento de jenkins localmente:
 
-<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-labs-lab-01.1.drawio.svg" alt="Texto alternativo" style="border: 1px solid #ccc; padding: 10px;">
+<img src="https://github.com/munozhassel/jenkins-learning/blob/main/img/jenkins-labs-lab-01.1.drawio.svg" alt="Texto alternativo" style="border: 1px solid white; padding: 10px;">
+
 
 ## Paso 1: Descargar imagen de Jenkins del repositorio de Docker Hub
 
