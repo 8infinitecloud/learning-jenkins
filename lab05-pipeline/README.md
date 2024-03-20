@@ -120,7 +120,7 @@ Luego de guardar la configuracion, te encontraras en el menu del Pipeline, aqui 
 
 ## Diferencias entre Pipelines SCRIPT y SCM
 
-Aquí tienes un cuadro comparativo entre las ventajas y desventajas de usar Pipeline Script y SCM (Source Code Management) en Jenkins:
+Este cuadro comparativo nos muestras las ventajas y desventajas de usar Pipeline Script y SCM (Source Code Management) en Jenkins:
 
 | Aspecto            | Pipeline Script                                      | SCM (Source Code Management)                    |
 |--------------------|------------------------------------------------------|-------------------------------------------------|
